@@ -4,13 +4,17 @@ import { english } from "@/libs/wordlists/english/mod.ts";
 export namespace BitcoinSeedPhrase {
 
   export async function generate(strength: 128 | 160 | 192 | 224 | 256, wordlist = english) {
-    const source8 = crypto.getRandomValues(new Uint8Array(strength / 8))
+    return await encode(crypto.getRandomValues(new Uint8Array(strength / 8)), wordlist)
+  }
+
+  export async function encode(entropy: Uint8Array<ArrayBuffer>, wordlist = english) {
+    const source8 = entropy
     const source2 = Array.from(source8).map(b => b.toString(2).padStart(8, "0")).join("")
 
     const digest8 = new Uint8Array(await crypto.subtle.digest("SHA-256", source8))
     const digest2 = Array.from(digest8).map(b => b.toString(2).padStart(8, "0")).join("")
 
-    const concat2 = source2 + digest2.slice(0, strength / 32)
+    const concat2 = source2 + digest2.slice(0, entropy.length / 4)
 
     const words: string[] = []
 
