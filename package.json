@@ -1,0 +1,40 @@
+{
+  "type": "module",
+  "name": "@hazae41/broca",
+  "version": "0.0.0",
+  "description": "Mnemonic derivation (BIP-39, Monero) for TypeScript",
+  "homepage": "https://github.com/hazae41/broca",
+  "repository": "github:hazae41/broca",
+  "author": "hazae41",
+  "scripts": {
+    "examine": "deno lint ./src && deno check ./src && deno test -RW ./src",
+    "prepack": "rm -rf ./out && tsc && tscousin"
+  },
+  "files": [
+    "./out"
+  ],
+  "exports": {
+    ".": {
+      "types": "./out/mod.d.ts",
+      "import": "./out/mod.js"
+    }
+  },
+  "devDependencies": {
+    "@hazae41/argon2-wasm": "^2.0.0",
+    "@hazae41/chacha20poly1305-wasm": "^2.0.0",
+    "@hazae41/phobos": "^2.0.16",
+    "@hazae41/tscousin": "^1.0.28",
+    "@types/node": "^25.0.3",
+    "deno": "^2.6.3",
+    "happy-dom": "^20.0.11",
+    "typescript": "^5.9.3"
+  },
+  "keywords": [
+    "bip39",
+    "typescript",
+    "esmodules",
+    "tested",
+    "unit-tested"
+  ],
+  "dependencies": {}
+}
