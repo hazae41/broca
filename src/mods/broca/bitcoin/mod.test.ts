@@ -1763,12 +1763,16 @@ test("test vector", async () => {
   for (const vector of vectors["english"]) {
     const entropy = Uint8Array.fromHex(vector[0])
 
-    const mnemonic = await BitcoinSeedPhrase.encode(entropy, english)
+    const encoded = await BitcoinSeedPhrase.encode(entropy, english)
 
-    assert(mnemonic === vector[1], "mnemonic mismatch")
+    assert(encoded === vector[1], "encoding mismatch")
 
-    const seed = await BitcoinSeedPhrase.derive(mnemonic, "TREZOR")
+    const decoded = await BitcoinSeedPhrase.decode(encoded, english)
 
-    assert(seed.toHex() === vector[2], "seed mismatch")
+    assert(decoded?.toHex() === entropy.toHex(), "decoding mismatch")
+
+    const seed = await BitcoinSeedPhrase.derive(encoded, "TREZOR")
+
+    assert(seed.toHex() === vector[2], "derivation mismatch")
   }
 })
