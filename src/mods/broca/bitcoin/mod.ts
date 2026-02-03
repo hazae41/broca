@@ -32,7 +32,7 @@ export namespace BitcoinSeedPhrase {
     const words: string[] = []
 
     for (let i = 0; i < concat2.length; i += 11)
-      words.push(wordlist[parseInt(concat2.slice(i, i + 11), 2) % wordlist.length])
+      words.push(wordlist[parseInt(concat2.slice(i, i + 11), 2)])
 
     return words.join(" ")
   }
