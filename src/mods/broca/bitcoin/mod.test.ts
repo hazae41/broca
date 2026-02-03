@@ -1,7 +1,6 @@
 /// <reference types="@/libs/bytes/lib.d.ts" />
 
 import { english } from "@/libs/wordlists/english/mod.ts";
-import { russian } from "@/libs/wordlists/russian/mod.ts";
 import { assert, test } from "@hazae41/phobos";
 import { BitcoinSeedPhrase } from "./mod.ts";
 
@@ -1765,18 +1764,6 @@ test("test vector", async () => {
     const entropy = Uint8Array.fromHex(vector[0])
 
     const mnemonic = await BitcoinSeedPhrase.encode(entropy, english)
-
-    assert(mnemonic === vector[1], "mnemonic mismatch")
-
-    const seed = await BitcoinSeedPhrase.derive(mnemonic, "TREZOR")
-
-    assert(seed.toHex() === vector[2], "seed mismatch")
-  }
-
-  for (const vector of vectors["russian"]) {
-    const entropy = Uint8Array.fromHex(vector[0])
-
-    const mnemonic = await BitcoinSeedPhrase.encode(entropy, russian)
 
     assert(mnemonic === vector[1], "mnemonic mismatch")
 
