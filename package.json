@@ -1,7 +1,7 @@
 {
   "type": "module",
   "name": "@hazae41/broca",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Mnemonic derivation (BIP-39, Monero) for TypeScript",
   "homepage": "https://github.com/hazae41/broca",
   "repository": "github:hazae41/broca",
