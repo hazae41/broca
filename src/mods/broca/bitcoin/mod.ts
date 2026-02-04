@@ -77,8 +77,8 @@ export namespace BitcoinSeedPhrase {
    * @param wordlist wordlist to use (default: english)
    * @returns whether the mnemonic is valid
    */
-  export function validate(mnemonic: string, wordlist = english) {
-    return decode(mnemonic, wordlist) != null
+  export async function validate(mnemonic: string, wordlist = english) {
+    return await decode(mnemonic, wordlist) != null
   }
 
   /**
