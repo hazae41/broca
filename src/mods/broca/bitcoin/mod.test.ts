@@ -1,6 +1,6 @@
 /// <reference types="@/libs/bytes/lib.d.ts" />
 
-import { english } from "@/libs/wordlists/english/mod.ts";
+import { english } from "@/libs/wordlists/bitcoin/english/mod.ts";
 import { assert, test } from "@hazae41/phobos";
 import { BitcoinSeedPhrase } from "./mod.ts";
 

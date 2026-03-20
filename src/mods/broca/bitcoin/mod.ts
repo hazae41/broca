@@ -1,6 +1,6 @@
 import { Lengthed } from "@/libs/lengthed/mod.ts";
 import { Nullable } from "@/libs/nullable/mod.ts";
-import { english } from "@/libs/wordlists/english/mod.ts";
+import { english } from "@/libs/wordlists/bitcoin/english/mod.ts";
 
 export namespace BitcoinSeedPhrase {
 

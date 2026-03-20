@@ -30,13 +30,13 @@ if (!BitcoinSeedPhrase.validate(mnemonic))
 const seed = await BitcoinSeedPhrase.derive(mnemonic)
 ```
 
-<!-- ### Monero
+### Monero
 
 ```tsx
-const mnemonic = await MoneroSeedPhrase.generate(256)
+const mnemonic = await MoneroSeedPhrase.generate()
 
 if (!MoneroSeedPhrase.validate(mnemonic))
   throw new Error("Invalid mnemonic seed phrase")
 
-const seed = await MoneroSeedPhrase.derive(mnemonic)
-``` -->
+const spendkey = await MoneroSeedPhrase.decode(mnemonic)
+```
