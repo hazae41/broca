@@ -21,7 +21,7 @@ export namespace MoneroSeedPhrase {
    * @param prefix number of characters to use as prefix for checksum (default: 3)
    * @returns mnemonic seed phrase
    */
-  export function encode(entropy: Uint8Array<ArrayBuffer>, wordlist = english, prefix = 3) {
+  export function encode(entropy: Uint8Array<ArrayBufferLike>, wordlist = english, prefix = 3) {
     const data = new DataView(entropy.buffer)
 
     const words = new Array<string>(24)
