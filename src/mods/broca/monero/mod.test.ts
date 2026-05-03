@@ -1,5 +1,3 @@
-/// <reference types="@/libs/bytes/lib.d.ts" />
-
 import { assert, test } from "@hazae41/phobos";
 import { MoneroSeedPhrase } from "./mod.ts";
 

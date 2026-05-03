@@ -1,4 +1,3 @@
-import { Lengthed } from "@/libs/lengthed/mod.ts";
 import { Nullable } from "@/libs/nullable/mod.ts";
 import { english } from "@/libs/wordlists/bitcoin/english/mod.ts";
 
@@ -96,7 +95,7 @@ export namespace BitcoinSeedPhrase {
     const alg = { name: "PBKDF2", hash: "SHA-512", salt: sal, iterations: 2048 }
     const ref = await crypto.subtle.importKey("raw", key, { name: "PBKDF2" }, false, ["deriveBits"])
 
-    return new Uint8Array(await crypto.subtle.deriveBits(alg, ref, 512)) as Uint8Array<ArrayBuffer> & Lengthed<64>
+    return new Uint8Array(await crypto.subtle.deriveBits(alg, ref, 512))
   }
 
 }
